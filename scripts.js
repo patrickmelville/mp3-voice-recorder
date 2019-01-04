@@ -8,10 +8,7 @@ Vue.component('listen-button', {
 Vue.component('download-button', {
     template: '<button class="download">download</button>'
 })
-Vue.component('send-button', {
-    props: ['val'],
-    template: '<button class="send">{{val}}</button>'
-})
+
 
 // Main Vue Application
 var app = new Vue({
@@ -19,7 +16,6 @@ var app = new Vue({
     data: {
         title: 'MP3 Voice Recorder',
         recording: false,
-        formHidden: true,
         timer: null,
         seconds: 0,
         recorder: null,
@@ -64,9 +60,6 @@ var app = new Vue({
             link.setAttribute('href', app.lastRecording);
             link.download = 'recording.mp3';
             link.click();
-        },
-        send: function () {
-            this.formHidden = !this.formHidden;
         },
     }
 });

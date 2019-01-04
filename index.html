@@ -20,13 +20,8 @@
         <nav>
             <listen-button @click.native="listen"></listen-button>
             <download-button @click.native="download"></download-button>
-            <send-button :val="formHidden?'Send':'Close'" @click.native="send"></send-button>
         </nav>
-        <div id="other" :class="{hidden: formHidden}">
-            <form action="">
-                <label for="">hidden form when send is clicked</label>
-                <input type="text">
-            </form>
+        <div id="other">
         </div>
 
     </div>
