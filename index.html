@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- to use browser-sync with this directory use next line -->
+    <!-- browser-sync . -w -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+    <title>MP3 Voice Recorder</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+
+        <record-button @click.native="record"></record-button>
+        <nav>
+            <listen-button @click.native="listen"></listen-button>
+            <download-button @click.native="download"></download-button>
+            <send-button :val="formHidden?'Send':'Close'" @click.native="send"></send-button>
+        </nav>
+        <div id="other" :class="{hidden: formHidden}">
+            <form action="">
+                <label for="">hidden form when send is clicked</label>
+                <input type="text">
+            </form>
+        </div>
+
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script> -->
+    <script src="mic.js"></script>
+    <script src="scripts.js"></script>
+
+
+</body>
+
+</html>
