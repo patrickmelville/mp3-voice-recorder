@@ -22,13 +22,14 @@ var app = new Vue({
         formHidden: true,
         timer: null,
         seconds: 0,
-        recorder: new MP3Recorder({ bitRate: 128 }),
+        recorder: null,
         lastRecording: null,
     },
     methods: {
         record: function () {
             if (!this.recording) {
                 // alert('recording has started');
+                this.recorder = new MP3Recorder({ bitRate: 128 });
                 this.recorder.start(function(){
                     //update button text to show time recording
                     console.log('started recording');
