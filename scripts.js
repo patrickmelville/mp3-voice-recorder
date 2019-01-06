@@ -1,13 +1,22 @@
 // Vue button components
 Vue.component('record-button', {
-    template: `<button class="record">Record</button>`,
-})
+    props: ['seconds','recording'],
+    computed: {
+        time: function () {
+            if (!this.recording)
+                return '';
+            else
+                return 'ing... ' + this.seconds;
+        }
+    },
+    template: `<div class="record"><i class="fas fa-microphone"></i>Record{{time}}</div>`,
+});
 Vue.component('listen-button', {
-    template: '<button class="listen">listen</button>'
-})
+    template: '<div class="listen"><i class="fas fa-play"></i>Listen</div>'
+});
 Vue.component('download-button', {
-    template: '<button class="download">download</button>'
-})
+    template: '<div class="download"><i class="fas fa-file-download"></i>Download</div>'
+});
 
 
 // Main Vue Application
@@ -17,27 +26,37 @@ var app = new Vue({
         title: 'MP3 Voice Recorder',
         recording: false,
         timer: null,
-        seconds: 0,
         recorder: null,
+        seconds: 0,
         lastRecording: null,
     },
     methods: {
         record: function () {
+            //clear timer
+            app.seconds = 0;
+            window.clearInterval(this.timer);
+            
             if (!this.recording) {
                 // alert('recording has started');
                 this.recorder = new MP3Recorder({ bitRate: 128 });
-                this.recorder.start(function(){
+                this.recorder.start(function () {
                     //update button text to show time recording
                     console.log('started recording');
-                }, function(){
+                }, function () {
                     alert('We could not make use of your microphone at the moment');
                 });
+                //start timer for recording visual cue
+                // window.clearInterval(this.timer);
+                this.timer = window.setInterval(function () {
+                    app.seconds++;
+                    console.log(app.seconds);
+                }, 1000);
             }
             else {
                 console.log('recording has stopped');
                 this.recorder.stop();
-                this.recorder.getMp3Blob(function(blob){
-                    blobToDataURL(blob, function(url){
+                this.recorder.getMp3Blob(function (blob) {
+                    blobToDataURL(blob, function (url) {
                         app.lastRecording = url;
                     });
                 });
@@ -45,9 +64,9 @@ var app = new Vue({
             this.recording = !this.recording;
         },
         listen: function () {
-            if(app.lastRecording == null){
+            if (app.lastRecording == null) {
                 alert('Please record something first.');
-            } else{
+            } else {
                 //create an audio element, set source, and play it
                 var a = document.createElement('audio');
                 a.setAttribute('src', app.lastRecording);

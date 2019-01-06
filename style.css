@@ -1,11 +1,72 @@
-html, body {
-    margin: 0;
-    padding: 0;
-  }
+@import url('https://fonts.googleapis.com/css?family=Racing+Sans+One');
 
-  *{
-    text-align: center;
-  }
-  .hidden{
-    display:none;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #f9a73e;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*{
+  text-align: center;
+}
+
+.hidden{
+  display: none;
+}
+
+h1{
+  font-family: 'Racing Sans One', cursive;
+  font-size: 3em ;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+}
+
+.record{
+  font-size: 1.2em;
+  padding: 15px;
+  color:white;
+  background: #ea3b4a;
+  border: none;
+  border-radius: 25px; 
+  margin: 25px 220px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+.record *{
+  margin: 0 15px 0 0;
+}
+.recording{
+  background: white;
+  color: #ea3b4a;
+}
+
+.listen{
+  font-size: 1.2em;
+  padding: 15px;
+  color:white;
+  background: #27b376;
+  border: none;
+  border-radius: 25px; 
+  margin: 25px 220px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+  cursor: pointer;
+}
+.listen *{
+  margin: 0 15px 0 0;
+}
+
+.download{
+  font-size: 1.2em;
+  padding: 15px;
+  color:white;
+  background: #4176e0;
+  border: none;
+  border-radius: 25px; 
+  margin: 25px 220px;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+  cursor: pointer;
+}
+.download *{
+  margin: 0 10px;
+}
