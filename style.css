@@ -22,16 +22,20 @@ h1{
   text-shadow: 2px 2px 5px black;
 }
 
-.record{
+nav > *{
   font-size: 1.2em;
-  padding: 15px;
   color:white;
-  background: #ea3b4a;
+  width: 430px;
   border: none;
   border-radius: 25px; 
-  margin: 25px 220px;
+  margin: 25px auto;
+  padding: 15px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
   cursor: pointer;
+}
+
+.record{
+  background: #ea3b4a;
 }
 .record *{
   margin: 0 15px 0 0;
@@ -42,30 +46,14 @@ h1{
 }
 
 .listen{
-  font-size: 1.2em;
-  padding: 15px;
-  color:white;
   background: #27b376;
-  border: none;
-  border-radius: 25px; 
-  margin: 25px 220px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
-  cursor: pointer;
 }
 .listen *{
   margin: 0 15px 0 0;
 }
 
 .download{
-  font-size: 1.2em;
-  padding: 15px;
-  color:white;
   background: #4176e0;
-  border: none;
-  border-radius: 25px; 
-  margin: 25px 220px;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
-  cursor: pointer;
 }
 .download *{
   margin: 0 10px;
